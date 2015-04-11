@@ -4,7 +4,7 @@
 function InfoBox(message, title) {
 
   // Set cmd for Windows.
-  batch("set OSDEPS=osdeps.bat");
+  batch("set BATSH_CMD=osdeps.bat");
 
   // Change to bash style call if bash.
   bash("BATSH_CMD=./osdeps");
@@ -14,7 +14,7 @@ function InfoBox(message, title) {
 function WarningBox(message, title) {
 
   // Set cmd for Windows.
-  batch("set OSDEPS=osdeps.bat");
+  batch("set BATSH_CMD=osdeps.bat");
 
   // Change to bash style call if bash.
   bash("BATSH_CMD=./osdeps");
@@ -24,7 +24,7 @@ function WarningBox(message, title) {
 function ErrorBox(message, title) {
 
   // Set cmd for Windows.
-  batch("set OSDEPS=osdeps.bat");
+  batch("set BATSH=osdeps.bat");
 
   // Change to bash style call if bash.
   bash("BATSH_CMD=./osdeps");
