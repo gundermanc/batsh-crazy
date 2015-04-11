@@ -1,0 +1,38 @@
+#!/bin/bash
+
+# Batsh-Crazy GUI Dialogs SDK BASH Dependencies.
+
+# Check that zenity is installed.
+if hash zenity 2>/dev/null; then
+    BATSH_CRAZY_ZENITY=true
+else
+    BATSH_CRAZY_ZENITY=false
+fi
+
+# Check for a command.
+if [ $# -lt 1 ];
+then
+    echo "Must specify a command."
+    exit
+fi
+
+# Parse messagebox commands
+if [ $1 = "info" ] || [ $1 = "warning" ] || [ $1 = "error" ]; then
+
+    # Check for proper number of arguments
+    if [ $# -ne 3 ]; then
+        echo "Usage: osdeps $1 [message] [title]"
+        exit
+    fi
+
+    # Check for zenity, otherwise, just print to screen.
+    if [ $BATSH_CRAZY_ZENITY = true ]; then
+        zenity "--$1" --text="$2" --title="$3"
+    else
+        echo "$3: $2"
+        read -n 1 -s
+    fi
+else
+    echo "Unknown command '$1'"
+    exit
+fi

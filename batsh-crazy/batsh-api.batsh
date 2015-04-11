@@ -1,0 +1,36 @@
+// Batsh-Crazy GUI Dialogs SDK
+// By: Christian Gunderman
+
+function InfoBox(message, title) {
+
+  // Set cmd for Windows.
+  batch("set OSDEPS=osdeps.bat");
+
+  // Change to bash style call if bash.
+  bash("BATSH_CMD=./osdeps");
+  call(BATSH_CMD, "info", message, title);
+}
+
+function WarningBox(message, title) {
+
+  // Set cmd for Windows.
+  batch("set OSDEPS=osdeps.bat");
+
+  // Change to bash style call if bash.
+  bash("BATSH_CMD=./osdeps");
+  call(BATSH_CMD, "warning", message, title);
+}
+
+function ErrorBox(message, title) {
+
+  // Set cmd for Windows.
+  batch("set OSDEPS=osdeps.bat");
+
+  // Change to bash style call if bash.
+  bash("BATSH_CMD=./osdeps");
+  call(BATSH_CMD, "error", message, title);
+}
+
+InfoBox("Message", "title");
+ErrorBox("Message", "title");
+WarningBox("Message", "title");
